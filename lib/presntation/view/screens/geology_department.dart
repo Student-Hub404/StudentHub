@@ -1,5 +1,8 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:student_hub/config/routes/app_routs.dart';
+import 'package:student_hub/core/static/subjects/geology_subjects.dart';
+import 'package:student_hub/core/static/subjects/geophysics_subjects.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
 import 'package:student_hub/core/utils/media_query_values.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
@@ -46,69 +49,79 @@ class GeologyDepartment extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      SizedBox(
-                        width: context.width * 0.9,
-                        child: Card(
-                            clipBehavior: Clip.hardEdge,
-                            elevation: 5,
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/geophysic.jpg",
-                                  height: context.height * 0.4,
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "جيوفيزياء",
-                                        style: getMediumStyle(
-                                            color: AppColors.black,
-                                            fontSize: 15),
-                                      ),
-                                      SizedBox(
-                                        width: context.width * 0.17,
-                                      ),
-                                    ],
+                      InkWell(
+                        onTap: () {
+                          navigatTo(context, const Geophysics());
+                        },
+                        child: SizedBox(
+                          width: context.width * 0.9,
+                          child: Card(
+                              clipBehavior: Clip.hardEdge,
+                              elevation: 5,
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/geophysic.jpg",
+                                    height: context.height * 0.4,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
                                   ),
-                                ),
-                              ],
-                            )),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "جيوفيزياء",
+                                          style: getMediumStyle(
+                                              color: AppColors.black,
+                                              fontSize: 15),
+                                        ),
+                                        SizedBox(
+                                          width: context.width * 0.17,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
                       ),
-                      SizedBox(
-                        width: context.width * 0.9,
-                        child: Card(
-                            clipBehavior: Clip.hardEdge,
-                            elevation: 5,
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/geology.jpg",
-                                  height: context.height * 0.4,
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "جيولوجيا",
-                                        style: getMediumStyle(
-                                            color: AppColors.black,
-                                            fontSize: 15),
-                                      ),
-                                      SizedBox(
-                                        width: context.width * 0.17,
-                                      ),
-                                    ],
+                      InkWell(
+                        onTap: () {
+                          navigatTo(context, const Geology());
+                        },
+                        child: SizedBox(
+                          width: context.width * 0.9,
+                          child: Card(
+                              clipBehavior: Clip.hardEdge,
+                              elevation: 5,
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/geology.jpg",
+                                    height: context.height * 0.4,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
                                   ),
-                                ),
-                              ],
-                            )),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "جيولوجيا",
+                                          style: getMediumStyle(
+                                              color: AppColors.black,
+                                              fontSize: 15),
+                                        ),
+                                        SizedBox(
+                                          width: context.width * 0.17,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
                       ),
                       SizedBox(
                         width: context.width * 0.9,

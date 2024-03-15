@@ -46,10 +46,6 @@ class PlantsAndChem extends StatelessWidget {
                       title: Text("المستوي الاول",
                           style: getMediumStyle(
                               color: AppColors.black, fontSize: 15)),
-                      leading: Icon(
-                        Icons.filter_vintage_outlined,
-                        color: AppColors.primary,
-                      ),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -309,10 +305,6 @@ class PlantsAndChem extends StatelessWidget {
                       title: Text("المستوي الثاني",
                           style: getMediumStyle(
                               color: AppColors.black, fontSize: 15)),
-                      leading: Icon(
-                        Icons.filter_vintage_outlined,
-                        color: AppColors.primary,
-                      ),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -649,10 +641,6 @@ class PlantsAndChem extends StatelessWidget {
                       title: Text("المستوي الثالث",
                           style: getMediumStyle(
                               color: AppColors.black, fontSize: 15)),
-                      leading: Icon(
-                        Icons.filter_vintage_outlined,
-                        color: AppColors.primary,
-                      ),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -969,10 +957,6 @@ class PlantsAndChem extends StatelessWidget {
                       title: Text("المستوي الرابع",
                           style: getMediumStyle(
                               color: AppColors.black, fontSize: 15)),
-                      leading: Icon(
-                        Icons.filter_vintage_outlined,
-                        color: AppColors.primary,
-                      ),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
