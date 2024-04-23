@@ -23,6 +23,14 @@ dependencies:
   flutter_zoom_drawer: ^3.1.2
   carousel_slider: ^4.2.1
   flutter_staggered_animations: ^1.1.1
+  firebase_core: ^2.30.0
+  firebase_storage: ^11.7.2
+  flick_video_player: ^0.7.0
+  video_player: ^2.8.6
+  cloud_firestore: ^4.17.0
+  flutter_bloc: ^8.1.5
+  appinio_video_player: ^1.2.2
+  chewie: ^1.5.0
 
 dev_dependencies:
   flutter_test:

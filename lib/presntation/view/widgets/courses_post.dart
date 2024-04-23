@@ -2,7 +2,6 @@ import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
-import 'package:student_hub/core/utils/media_query_values.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
 
 Widget buildCoursPost(BuildContext context, String healine, String subTitle,
