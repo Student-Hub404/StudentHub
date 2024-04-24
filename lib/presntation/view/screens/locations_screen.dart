@@ -4,6 +4,7 @@ import 'package:student_hub/config/routes/app_routs.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
 import 'package:student_hub/core/utils/media_query_values.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
+import 'package:student_hub/presntation/view/screens/labs_screen.dart';
 import 'package:student_hub/presntation/view/screens/terraces_screen.dart';
 
 class LocationsScreen extends StatelessWidget {
@@ -61,28 +62,33 @@ class LocationsScreen extends StatelessWidget {
             SizedBox(
               height: context.height * 0.02,
             ),
-            SizedBox(
-              height: context.height * 0.388,
-              child: Card(
-                clipBehavior: Clip.hardEdge,
-                elevation: 5,
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/lab.jpg",
-                      height: context.height * 0.32,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "المعامل",
-                        style:
-                            getBoldStyle(color: AppColors.black, fontSize: 18),
+            InkWell(
+              onTap: () {
+                navigatTo(context, const LabsScreen());
+              },
+              child: SizedBox(
+                height: context.height * 0.388,
+                child: Card(
+                  clipBehavior: Clip.hardEdge,
+                  elevation: 5,
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/lab.jpg",
+                        height: context.height * 0.32,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "المعامل",
+                          style: getBoldStyle(
+                              color: AppColors.black, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
