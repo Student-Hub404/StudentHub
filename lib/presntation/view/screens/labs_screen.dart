@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
@@ -32,6 +34,7 @@ class _LabsScreenState extends State<LabsScreen> {
         LocationsModel location =
             LocationsModel.fromJason(doc.data() as Map<String, dynamic>);
         list.add(location);
+        log("${list.length}");
       }
       setState(() {});
     });
@@ -60,6 +63,7 @@ class _LabsScreenState extends State<LabsScreen> {
           ),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: true,
               itemBuilder: (context, index) =>
                   BuildLabsItem(model: list[index], key: UniqueKey()),
               itemCount: list.length,

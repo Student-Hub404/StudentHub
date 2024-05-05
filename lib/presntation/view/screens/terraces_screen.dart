@@ -60,6 +60,7 @@ class _TerracesScreenState extends State<TerracesScreen> {
           ),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: true,
               itemBuilder: (context, index) =>
                   BuildTerracesItem(model: list[index], key: UniqueKey()),
               itemCount: list.length,
