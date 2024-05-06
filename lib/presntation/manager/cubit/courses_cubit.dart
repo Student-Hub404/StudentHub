@@ -10,11 +10,11 @@ class CoursesCubit extends Cubit<CoursesStates> {
 
   List courses = [];
 
-  void getMovie() async {
+  void getCourses() async {
     emit(CoursesLoadingState());
     try {
       final response = await Dio().get(
-        "https://89db-156-197-161-237.ngrok-free.app/api/v1/courses",
+        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/courses",
       );
       var model = CoursesModel.fromJson(response.data);
       courses = model.data;

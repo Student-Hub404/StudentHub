@@ -2,15 +2,15 @@ class CoursesModel {
   CoursesModel({
     required this.data,
   });
-  late final List<Data> data;
+  late final List<Courses> data;
 
   CoursesModel.fromJson(Map<String, dynamic> json) {
-    data = List.from(json['data']).map((e) => Data.fromJson(e)).toList();
+    data = List.from(json['data']).map((e) => Courses.fromJson(e)).toList();
   }
 }
 
-class Data {
-  Data({
+class Courses {
+  Courses({
     required this.name,
     required this.description,
     required this.instructor,
@@ -21,7 +21,7 @@ class Data {
   late final String instructor;
   late final String link;
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Courses.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     description = json['description'];
     instructor = json['instructor'];

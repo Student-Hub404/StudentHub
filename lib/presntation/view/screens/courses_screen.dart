@@ -15,7 +15,7 @@ class CoursesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CoursesCubit()..getMovie(),
+      create: (context) => CoursesCubit()..getCourses(),
       child: BlocConsumer<CoursesCubit, CoursesStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -70,7 +70,7 @@ class CoursesScreen extends StatelessWidget {
                       children: [
                         Center(
                             child: Image.asset(
-                          "assets/images/disconect-removebg-preview.png",
+                          "assets/images/server cnect.png",
                           color: AppColors.primary,
                           height: context.height * 0.1,
                         )),

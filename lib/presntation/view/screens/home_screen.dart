@@ -1,14 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
 import 'package:student_hub/core/utils/app_strings.dart';
 import 'package:student_hub/core/utils/media_query_values.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
+import 'package:student_hub/presntation/manager/cubit/posts_cubit.dart';
+import 'package:student_hub/presntation/manager/states/posts_state.dart';
+import 'package:student_hub/presntation/view/widgets/posts_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> sliderImages = [
     Image.asset(
       "assets/images/libHome.png",
@@ -28,120 +36,101 @@ class HomeScreen extends StatelessWidget {
     )
   ];
 
+  bool isLike = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            SizedBox(
-              height: context.height * 0.35,
-              width: double.infinity,
-              child: CarouselSlider(
-                  items: sliderImages,
-                  options: CarouselOptions(
-                    height: 400,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 1,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 3),
-                    autoPlayAnimationDuration: const Duration(seconds: 1),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.3,
-                    scrollDirection: Axis.horizontal,
-                  )),
-            ),
-            SizedBox(
-              height: context.height * 0.01,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  Text(
-                    AppStrings.homeMsg,
-                    style: getBoldStyle(color: AppColors.black, fontSize: 20),
+    return BlocConsumer<PostsCubit, PostsStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+            body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: context.height * 0.35,
+                  width: double.infinity,
+                  child: CarouselSlider(
+                      items: sliderImages,
+                      options: CarouselOptions(
+                        height: 400,
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 1,
+                        initialPage: 0,
+                        enableInfiniteScroll: true,
+                        reverse: false,
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayAnimationDuration: const Duration(seconds: 1),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: true,
+                        enlargeFactor: 0.3,
+                        scrollDirection: Axis.horizontal,
+                      )),
+                ),
+                SizedBox(
+                  height: context.height * 0.01,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        AppStrings.homeMsg,
+                        style:
+                            getBoldStyle(color: AppColors.black, fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: context.height * 0.001,
+                      ),
+                      Container(
+                        height: 1,
+                        width: context.width * 0.4,
+                        decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                      SizedBox(
+                        height: context.height * 0.01,
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: context.height * 0.001,
-                  ),
-                  Container(
-                    height: 1,
-                    width: context.width * 0.4,
-                    decoration: BoxDecoration(
+                ),
+                BlocBuilder<PostsCubit, PostsStates>(
+                  builder: (context, state) {
+                    if (state is PostsLoadingState) {
+                      return CircularProgressIndicator(
                         color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                  SizedBox(
-                    height: context.height * 0.01,
-                  ),
-                  Card(
-                    elevation: 5,
-                    child: Column(
-                      children: [
-                        Image.asset("assets/images/ches.png"),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                              "Computer science focuses on the development and testing of software and software systems. "),
-                        ),
-                        Row(
-                          children: [
-                            TextButton(
-                                onPressed: () {},
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      EneftyIcons.message_outline,
-                                      color: AppColors.primary,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "تعليق",
-                                      style: getMediumStyle(
-                                          color: AppColors.primary),
-                                    )
-                                  ],
-                                )),
-                            SizedBox(
-                              width: context.width * 0.17,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: context.width * 0.3,
-                                height: context.height * 0.04,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: AppColors.primary,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "تقديم طلب",
-                                    style: getBoldStyle(color: AppColors.white),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      );
+                    } else if (state is PostsSuccessState) {
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) => buildPostCard(
+                                  context,
+                                  context.read<PostsCubit>().posts[index], () {
+                                setState(() {
+                                  isLike = !isLike;
+                                });
+                              }, isLike ? AppColors.primary : AppColors.black),
+                          itemCount: PostsCubit.get(context).posts.length);
+                    } else {
+                      return Text(
+                        "Posts not found",
+                        style:
+                            getBoldStyle(color: AppColors.black, fontSize: 20),
+                      );
+                    }
+                  },
+                )
+              ],
             ),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
+      },
+    );
   }
 }

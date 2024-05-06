@@ -6,7 +6,7 @@ import 'package:student_hub/core/utils/style_manager.dart';
 import 'package:student_hub/models/courses_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Widget buildCoursPost(BuildContext context, int index, Data model) =>
+Widget buildCoursPost(BuildContext context, int index, Courses model) =>
     AnimationConfiguration.staggeredList(
       position: index,
       delay: const Duration(milliseconds: 100),
