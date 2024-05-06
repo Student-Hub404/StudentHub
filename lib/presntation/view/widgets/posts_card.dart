@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
+import 'package:student_hub/core/utils/media_query_values.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
 import 'package:student_hub/models/posts_model.dart';
 
@@ -11,7 +12,10 @@ Widget buildPostCard(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            Image.network(model.image),
+            SizedBox(
+                height: context.height * 0.4,
+                width: double.infinity,
+                child: Image.network(model.image)),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

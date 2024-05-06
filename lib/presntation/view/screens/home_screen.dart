@@ -10,7 +10,7 @@ import 'package:student_hub/presntation/manager/states/posts_state.dart';
 import 'package:student_hub/presntation/view/widgets/posts_card.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
