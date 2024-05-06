@@ -24,26 +24,12 @@ Widget buildPostCard(
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   model.createdAt,
                   style: getMediumStyle(color: AppColors.grey),
                 ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Text(
-                      "أعجبني",
-                      style: getBoldStyle(color: AppColors.black),
-                    ),
-                    IconButton(
-                        onPressed: fun,
-                        icon: Icon(
-                          Icons.favorite,
-                          color: color,
-                        )),
-                  ],
-                )
               ],
             )
           ],
