@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +22,9 @@ class _ComptitionScreenState extends State<ComptitionScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CompetitionsCubit, CompetitionsStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        log("$state");
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(

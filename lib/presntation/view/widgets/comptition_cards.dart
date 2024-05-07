@@ -31,13 +31,17 @@ Widget buildComptitionCard(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  model.id,
+                  model.createdAt,
                   style: getMediumStyle(color: AppColors.grey),
                 ),
                 const Spacer(),
                 TextButton(
                     onPressed: () {
-                      navigatTo(context, ComptitionFormScreen());
+                      navigatTo(
+                          context,
+                          ComptitionFormScreen(
+                            comptitionId: model.id,
+                          ));
                     },
                     child: Text(
                       "تسجيل",

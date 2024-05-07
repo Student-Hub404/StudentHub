@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => PostsCubit()..getPosts()),
         BlocProvider(
           create: (context) => CompetitionsCubit()..getComptition(),
-        )
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
