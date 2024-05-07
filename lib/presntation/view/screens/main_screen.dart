@@ -1,8 +1,10 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:student_hub/config/routes/app_routs.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
 import 'package:student_hub/core/utils/style_manager.dart';
+import 'package:student_hub/presntation/view/screens/comptition_screen.dart';
 import 'package:student_hub/presntation/view/screens/departments_screen.dart';
 import 'package:student_hub/presntation/view/screens/drawer.dart';
 import 'package:student_hub/presntation/view/screens/home_screen.dart';
@@ -45,6 +47,13 @@ class _MainScreenState extends State<MainScreen> {
           style: getBoldStyle(color: AppColors.black, fontSize: 20),
         ),
         systemOverlayStyle: SystemUiOverlayStyle.light,
+        actions: [
+          IconButton(
+              onPressed: () {
+                navigatTo(context, const ComptitionScreen());
+              },
+              icon: const Icon(EneftyIcons.cup_outline))
+        ],
       ),
       body: screens[curentIndex],
       bottomNavigationBar: BottomNavigationBar(
