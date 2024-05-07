@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student_hub/models/posts_model.dart';
@@ -18,7 +20,7 @@ class PostsCubit extends Cubit<PostsStates> {
       );
       var model = PostsModel.fromJson(response.data);
       posts = model.data;
-
+      log("${posts.length}");
       emit(PostsSuccessState());
     } catch (e) {
       emit(PostsErrState());

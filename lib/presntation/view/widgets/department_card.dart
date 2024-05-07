@@ -1,4 +1,3 @@
-import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:student_hub/core/utils/app_colors.dart';
@@ -41,7 +40,7 @@ Widget buildDepartment(BuildContext context, String healine, String subTitle,
                     style: getMediumStyle(color: AppColors.black, fontSize: 18),
                   ),
                   SizedBox(
-                    height: context.height * 0.1,
+                    height: context.height * 0.08,
                     width: context.width * 0.7,
                     child: Text(
                       subTitle,
@@ -49,22 +48,24 @@ Widget buildDepartment(BuildContext context, String healine, String subTitle,
                           getMediumStyle(color: AppColors.grey, fontSize: 13),
                     ),
                   ),
-                  TextButton(
-                      onPressed: fun,
-                      child: Row(
-                        children: [
-                          Icon(
-                            EneftyIcons.book_2_outline,
-                            color: AppColors.primary,
-                            size: 25,
-                          ),
-                          Text(
-                            "المزيد",
-                            style: getBoldStyle(
-                                color: AppColors.primary, fontSize: 15),
-                          )
-                        ],
-                      ))
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: context.width * 0.5,
+                      ),
+                      TextButton(
+                          onPressed: fun,
+                          child: Row(
+                            children: [
+                              Text(
+                                "المزيد",
+                                style: getBoldStyle(
+                                    color: AppColors.primary, fontSize: 15),
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
                 ],
               )
             ],

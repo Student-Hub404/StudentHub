@@ -43,7 +43,7 @@ class TravelerPublicServiceCommitteeScreen extends StatelessWidget {
                   height: context.height * 0.02,
                 ),
                 Text(
-                  "اكتشاف المواهب الفنيه بين الطلاب وتنميتها وتشجيعها كذلك اقامه المعارض الفنيه والحفلات لاظهار مواهب الطلاب وتشجيعهم",
+                  "تقوم بتنظيم المعسكرات الكشفية والتدريبية والرحلات الخلوية ومشروعات الخدمة العامة",
                   style: getBoldStyle(color: AppColors.grey, fontSize: 15),
                 ),
                 SizedBox(
@@ -129,7 +129,36 @@ class TravelerPublicServiceCommitteeScreen extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Text(
-                                        "حفلات سهر",
+                                        "حفلات سمر",
+                                        style: getMediumStyle(
+                                            color: AppColors.black,
+                                            fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ),
+                      SizedBox(
+                        width: context.width * 0.9,
+                        child: Card(
+                            clipBehavior: Clip.hardEdge,
+                            elevation: 5,
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "assets/images/rabatat.jpg",
+                                  height: context.height * 0.4,
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "ورش ربطات",
                                         style: getMediumStyle(
                                             color: AppColors.black,
                                             fontSize: 15),

@@ -43,7 +43,7 @@ class StudentFamiliesScreen extends StatelessWidget {
                   height: context.height * 0.02,
                 ),
                 Text(
-                  "اكتشاف المواهب الفنيه بين الطلاب وتنميتها وتشجيعها كذلك اقامه المعارض الفنيه والحفلات لاظهار مواهب الطلاب وتشجيعهم",
+                  "تعمل علي تشجيع الأسر الطلابية بالكلية ودعم نشاطها والتنسيق بينهم",
                   style: getBoldStyle(color: AppColors.grey, fontSize: 15),
                 ),
                 SizedBox(

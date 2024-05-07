@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         reverse: false,
                         autoPlay: true,
                         autoPlayInterval: const Duration(seconds: 3),
-                        autoPlayAnimationDuration: const Duration(seconds: 1),
+                        autoPlayAnimationDuration: const Duration(seconds: 2),
                         autoPlayCurve: Curves.fastOutSlowIn,
                         enlargeCenterPage: true,
                         enlargeFactor: 0.3,
@@ -118,10 +118,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               }, isLike ? AppColors.primary : AppColors.black),
                           itemCount: PostsCubit.get(context).posts.length);
                     } else {
-                      return Text(
-                        "Posts not found",
-                        style:
-                            getBoldStyle(color: AppColors.black, fontSize: 20),
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                              child: Image.asset(
+                            "assets/images/server cnect.png",
+                            height: context.height * 0.25,
+                          )),
+                          SizedBox(
+                            height: context.height * 0.03,
+                          ),
+                          Text(
+                            "لا يتوفر اتصال بالانترنت",
+                            style: getBoldStyle(
+                                color: AppColors.black, fontSize: 25),
+                          )
+                        ],
                       );
                     }
                   },

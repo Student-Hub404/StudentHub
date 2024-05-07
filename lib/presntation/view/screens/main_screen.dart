@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
     "رعاية الطلاب",
   ];
   List<Widget> screens = [
-    HomeScreen(),
+    const HomeScreen(),
     DepartmentsScreen(),
     StudentServScreen(),
   ];
