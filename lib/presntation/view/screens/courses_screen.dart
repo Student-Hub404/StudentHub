@@ -71,14 +71,13 @@ class CoursesScreen extends StatelessWidget {
                         Center(
                             child: Image.asset(
                           "assets/images/server cnect.png",
-                          color: AppColors.primary,
-                          height: context.height * 0.1,
+                          height: context.height * 0.4,
                         )),
                         SizedBox(
                           height: context.height * 0.03,
                         ),
                         Text(
-                          "Network Error",
+                          "لا يتوفر اتصال بالانترنت",
                           style: getBoldStyle(
                               color: AppColors.black, fontSize: 25),
                         )
