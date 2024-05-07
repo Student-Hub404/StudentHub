@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student_hub/config/theme/app_theme.dart';
 import 'package:student_hub/presntation/manager/cubit/competitions_cubit.dart';
 import 'package:student_hub/presntation/manager/cubit/posts_cubit.dart';
-import 'package:student_hub/presntation/view/screens/splash_screen.dart';
+import 'package:student_hub/presntation/view/screens/comptition_form_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme(),
-        home: const SplashScreen(),
+        home: ComptitionFormScreen(),
       ),
     );
   }

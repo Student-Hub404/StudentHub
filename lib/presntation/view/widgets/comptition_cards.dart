@@ -37,11 +37,7 @@ Widget buildComptitionCard(
                 const Spacer(),
                 TextButton(
                     onPressed: () {
-                      navigatTo(
-                          context,
-                          ComptitionFormScreen(
-                            id: model.id,
-                          ));
+                      navigatTo(context, ComptitionFormScreen());
                     },
                     child: Text(
                       "تسجيل",
