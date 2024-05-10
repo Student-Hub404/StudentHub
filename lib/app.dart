@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:student_hub/config/theme/app_theme.dart';
 import 'package:student_hub/presntation/manager/cubit/auth_cubit.dart';
 import 'package:student_hub/presntation/manager/cubit/competitions_cubit.dart';
 import 'package:student_hub/presntation/manager/cubit/posts_cubit.dart';
-import 'package:student_hub/presntation/view/screens/drawer.dart';
 import 'package:student_hub/presntation/view/screens/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme(),
-        home: const DrawerZoom(),
+        home: const SplashScreen(),
       ),
     );
   }
