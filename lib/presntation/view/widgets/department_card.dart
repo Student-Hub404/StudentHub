@@ -35,12 +35,11 @@ Widget buildDepartment(BuildContext context, String healine, String subTitle,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    //"Nature and animal science"
                     healine,
                     style: getMediumStyle(color: AppColors.black, fontSize: 18),
                   ),
                   SizedBox(
-                    height: context.height * 0.08,
+                    height: context.height * 0.15,
                     width: context.width * 0.7,
                     child: Text(
                       subTitle,

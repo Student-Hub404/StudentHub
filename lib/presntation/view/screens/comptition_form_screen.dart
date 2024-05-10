@@ -39,7 +39,17 @@ class _ComptitionFormScreenState extends State<ComptitionFormScreen> {
     return BlocConsumer<CompetitionsCubit, CompetitionsStates>(
       listener: (context, state) {
         if (state is CompetitionsSuccessState) {
-          return;
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "تم التسجيل بنجاح",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
+        } else if (state is CompetitionsErrState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "البيانات غير صالحة",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
         }
       },
       builder: (context, state) {

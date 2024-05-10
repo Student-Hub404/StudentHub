@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,8 +41,15 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthStates>(
       listener: (context, state) {
+        log("$state");
         if (state is AuthSuccessStates) {
           navigateAndFinish(context, const DrawerZoom());
+        } else if (state is AuthErrStates) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "البيانات غير صالحة",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
         }
       },
       child: Scaffold(
@@ -101,10 +110,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       defualtFormField(context, controller: emailController,
                           validate: (String value) {
-                        if (value.isEmpty) {
-                          return "قم بأيدخال البريد الالكتروني";
+                        if (value.contains("@")) {
+                          return null;
                         }
-                        return null;
+                        return "البريد الالكتروني غير صالح";
                       },
                           hint: "البريد الاكتروني",
                           type: TextInputType.emailAddress,
@@ -119,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       defualtFormField(context, controller: passController,
                           validate: (String value) {
                         if (value.length < 10) {
-                          return "يجب الا يقل عن 10 حروف تحتوي علي رموز و ارقام و احرف كبيرة";
+                          return "كلمة السر غير صحيحه";
                         }
                       },
                           hint: "كلمة السر",
@@ -141,13 +150,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: context.height * 0.1,
                       ),
-                      mainButton(width: double.infinity, context, onpressd: () {
-                        if (formKey.currentState!.validate()) {
-                          AuthCubit.get(context).userLogin(
-                              email: emailController.text,
-                              password: passController.text);
-                        }
-                      }, background: AppColors.primary, text: "تسجيل دخول"),
+                      BlocBuilder<AuthCubit, AuthStates>(
+                        builder: (context, state) {
+                          if (state is AuthLoadingStates) {
+                            return CircularProgressIndicator(
+                              color: AppColors.primary,
+                            );
+                          }
+                          return mainButton(width: double.infinity, context,
+                              onpressd: () {
+                            if (formKey.currentState!.validate()) {
+                              AuthCubit.get(context).userLogin(
+                                  email: emailController.text,
+                                  password: passController.text);
+                            }
+                          }, background: AppColors.primary, text: "تسجيل دخول");
+                        },
+                      ),
                       SizedBox(
                         height: context.height * 0.02,
                       ),

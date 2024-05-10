@@ -14,7 +14,7 @@ class CoursesCubit extends Cubit<CoursesStates> {
     emit(CoursesLoadingState());
     try {
       final response = await Dio().get(
-        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/courses",
+        "https://0b59-156-197-215-17.ngrok-free.app/api/v1/courses",
       );
       var model = CoursesModel.fromJson(response.data);
       courses = model.data;

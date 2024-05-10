@@ -39,26 +39,59 @@ class _ComptitionScreenState extends State<ComptitionScreen> {
             ),
             centerTitle: true,
           ),
-          body: Directionality(
-            textDirection: TextDirection.rtl,
-            child: Column(children: [
-              AnimationLimiter(
-                child: Expanded(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(15),
-                    physics: const BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    itemCount:
-                        CompetitionsCubit.get(context).competitions.length,
-                    separatorBuilder: (context, index) =>
-                        SizedBox(height: context.height * 0.02),
-                    itemBuilder: (context, index) => buildComptitionCard(
-                        context,
-                        context.read<CompetitionsCubit>().competitions[index]),
+          body: BlocBuilder<CompetitionsCubit, CompetitionsStates>(
+            builder: (context, state) {
+              if (state is CompetitionsLoadingState) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
                   ),
-                ),
-              ),
-            ]),
+                );
+              } else if (state is CompetitionsSuccessState) {
+                return Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Column(children: [
+                    AnimationLimiter(
+                      child: Expanded(
+                        child: ListView.separated(
+                          padding: const EdgeInsets.all(15),
+                          physics: const BouncingScrollPhysics(
+                              parent: AlwaysScrollableScrollPhysics()),
+                          itemCount: CompetitionsCubit.get(context)
+                              .competitions
+                              .length,
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: context.height * 0.02),
+                          itemBuilder: (context, index) => buildComptitionCard(
+                              context,
+                              context
+                                  .read<CompetitionsCubit>()
+                                  .competitions[index]),
+                        ),
+                      ),
+                    ),
+                  ]),
+                );
+              } else {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                        child: Image.asset(
+                      "assets/images/server cnect.png",
+                      height: context.height * 0.4,
+                    )),
+                    SizedBox(
+                      height: context.height * 0.03,
+                    ),
+                    Text(
+                      "لا يتوفر اتصال بالانترنت",
+                      style: getBoldStyle(color: AppColors.black, fontSize: 25),
+                    )
+                  ],
+                );
+              }
+            },
           ),
         );
       },

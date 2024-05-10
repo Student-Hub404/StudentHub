@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,8 +46,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
+        log("$state");
         if (state is AuthSuccessStates) {
           navigateAndFinish(context, const DrawerZoom());
+        } else if (state is AuthErrStates) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "البيانات غير صالحة",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
         }
       },
       builder: (context, state) {
@@ -144,6 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             hint: "ُكلمة السر",
                             type: TextInputType.text,
                             width: double.infinity,
+                            isPassword: isPassword,
                             suffix: IconButton(
                                 onPressed: () {
                                   setState(() {
@@ -185,16 +195,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(
                           height: context.height * 0.05,
                         ),
-                        mainButton(context, width: double.infinity,
-                            onpressd: () {
-                          if (formKey.currentState!.validate()) {
-                            AuthCubit.get(context).createUser(
-                                email: emailController.text,
-                                name: nameController.text,
-                                password: passController.text,
-                                confirmPass: confirmPassController.text);
-                          }
-                        }, background: AppColors.primary, text: "انشاء"),
+                        BlocBuilder<AuthCubit, AuthStates>(
+                          builder: (context, state) {
+                            if (state is AuthLoadingStates) {
+                              return CircularProgressIndicator(
+                                color: AppColors.primary,
+                              );
+                            }
+                            return mainButton(context, width: double.infinity,
+                                onpressd: () {
+                              if (formKey.currentState!.validate()) {
+                                AuthCubit.get(context).createUser(
+                                    email: emailController.text,
+                                    name: nameController.text,
+                                    password: passController.text,
+                                    confirmPass: confirmPassController.text);
+                              }
+                            }, background: AppColors.primary, text: "انشاء");
+                          },
+                        ),
                         SizedBox(
                           height: context.height * 0.02,
                         ),

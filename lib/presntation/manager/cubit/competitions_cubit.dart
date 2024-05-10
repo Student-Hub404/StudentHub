@@ -15,7 +15,7 @@ class CompetitionsCubit extends Cubit<CompetitionsStates> {
     emit(CompetitionsLoadingState());
     try {
       final response = await Dio().get(
-        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/competitions",
+        "https://0b59-156-197-215-17.ngrok-free.app/api/v1/competitions",
       );
       var model = CompetitionsModel.fromJson(response.data);
       competitions = model.data;

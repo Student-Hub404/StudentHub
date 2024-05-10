@@ -16,7 +16,7 @@ class PostsCubit extends Cubit<PostsStates> {
     emit(PostsLoadingState());
     try {
       final response = await Dio().get(
-        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/posts",
+        "https://0b59-156-197-215-17.ngrok-free.app/api/v1/posts",
       );
       var model = PostsModel.fromJson(response.data);
       posts = model.data;

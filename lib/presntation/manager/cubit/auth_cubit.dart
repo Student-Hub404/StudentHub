@@ -15,16 +15,17 @@ class AuthCubit extends Cubit<AuthStates> {
   }) async {
     emit(AuthLoadingStates());
 
-    final response = await Dio().post(
-        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/login",
-        data: {
-          'email': email,
-          'password': password,
-        });
-    user = UserModel.fromJson(response.data);
-    emit(AuthSuccessStates());
-
-    emit(AuthErrStates());
+    try {
+      final response = await Dio()
+          .post("https://0b59-156-197-215-17.ngrok-free.app/v1/login", data: {
+        'email': email,
+        'password': password,
+      });
+      user = UserModel.fromJson(response.data);
+      emit(AuthSuccessStates());
+    } catch (e) {
+      emit(AuthErrStates());
+    }
   }
 
   void createUser({
@@ -36,7 +37,7 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(AuthLoadingStates());
     try {
       final response = await Dio().post(
-        "https://d53d-156-197-183-181.ngrok-free.app/api/v1/register",
+        "https://0b59-156-197-215-17.ngrok-free.app/api/v1/register",
         data: {
           'email': email,
           'password': password,
