@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:student_hub/core/static/const.dart';
 import 'package:student_hub/models/user_model.dart';
 import 'package:student_hub/presntation/manager/states/auth_states.dart';
 
@@ -16,8 +17,7 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(AuthLoadingStates());
 
     try {
-      final response = await Dio()
-          .post("https://0b59-156-197-215-17.ngrok-free.app/v1/login", data: {
+      final response = await Dio().post("${AppConsts.apiID}/v1/login", data: {
         'email': email,
         'password': password,
       });
@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(AuthLoadingStates());
     try {
       final response = await Dio().post(
-        "https://0b59-156-197-215-17.ngrok-free.app/api/v1/register",
+        "${AppConsts.apiID}/api/v1/register",
         data: {
           'email': email,
           'password': password,
