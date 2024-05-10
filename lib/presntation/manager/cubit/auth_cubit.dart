@@ -23,7 +23,6 @@ class AuthCubit extends Cubit<AuthStates> {
         });
     user = UserModel.fromJson(response.data);
     emit(AuthSuccessStates());
-    print(response.data);
 
     emit(AuthErrStates());
   }
@@ -46,7 +45,6 @@ class AuthCubit extends Cubit<AuthStates> {
         },
       );
       user = UserModel.fromJson(response.data);
-      print(response.data);
       emit(AuthSuccessStates());
     } catch (e) {
       emit(AuthErrStates());
