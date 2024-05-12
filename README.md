@@ -26,6 +26,6 @@
 ![image (8)](https://github.com/Student-Hub404/StudentHub/assets/93291446/9527a447-e3d4-4d07-b0b5-77f5d20040a6)
 ![image (4)](https://github.com/Student-Hub404/StudentHub/assets/93291446/7c0fde40-5b08-4a7f-b253-b7fa74c999e0)
 ![image (5)](https://github.com/Student-Hub404/StudentHub/assets/93291446/9564cece-d9a5-4ccf-b2d3-8860c39efce7)
-![image (6)](https://github.com/Student-Hub404/StudentHub/assets/93291446/ca3693d6-7f25-4c01-9428-4611171f97d
+![image (6)](https://github.com/Student-Hub404/StudentHub/assets/93291446/ca3693d6-7f25-4c01-9428-4611171f97db)
 ![image (9)](https://github.com/Student-Hub404/StudentHub/assets/93291446/0727b7d9-8c72-455a-934a-ac1f1e93484d)
-b)
+
