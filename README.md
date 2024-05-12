@@ -1,16 +1,18 @@
-# student_hub
+# StudentHub
 
-A new Flutter project.
+   A project specialized in helping new students adapt to university life and providing them with resources for studying, participating in student activities, locations of classrooms and laboratories within the     
+   college, and browsing news at the university level. 
 
-## Getting Started
+# Team Members 
+   Ahmed Hossam - Flutter Developer
+   Mohammed Saad - Laravel Developer 
 
-This project is a starting point for a Flutter application.
+# Contacts 
+  - Ahmed Hossam
+      * 01061917210
+      * ahossamm404@gnail.com
+  - Mohammed Saad
+      * 01029869611
+      * mohamed.saadd288@gmail.com
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# App Layouts
