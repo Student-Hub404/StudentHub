@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       defualtFormField(context, controller: passController,
                           validate: (String value) {
-                        if (value.length < 10) {
+                        if (value.length < 8) {
                           return "كلمة السر غير صحيحه";
                         }
                       },
