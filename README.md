@@ -4,8 +4,8 @@
    college, and browsing news at the university level. 
 
 # Team Members 
-   Ahmed Hossam - Flutter Developer
-   Mohammed Saad - Laravel Developer 
+   Ahmed Hossam - Mobile Developer
+   Mohammed Saad - Backend Developer 
 
 # Contacts 
   - Ahmed Hossam
